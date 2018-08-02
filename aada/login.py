@@ -51,7 +51,7 @@ class Login:
                     'aws_session_token']
     _MFA_DELAY = 3
     _MFA_TIMEOUT = 60  # timeout in seconds to process MFA
-    _AWAIT_TIMEOUT = 30000
+    _AWAIT_TIMEOUT = 60000
     _SLEEP_TIMEOUT = 0.5  # in seconds
     _EXEC_PATH = os.environ.get('CHROME_EXECUTABLE_PATH')
     _RETRIES = 5
