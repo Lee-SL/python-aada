@@ -162,8 +162,12 @@ class Login:
                 await page.waitForSelector('input[type=submit]:not(.moveOffScreen)')
                 await page.click('input[type=submit]')
             
-            except Exception:
-                LOGGER.error("An error occured while automating browser click-through, Try using the -n flag until browser automation is fixed")
+            except TimeoutError:
+                raise TimeoutError
+
+            except Exception as e:
+                LOGGER.error("An error occured while automating browser click-through, Try using the -n flag until browser automation is fixed: {}".format(e))
+                exit(1)
 
         try:
             if await self._querySelector(page, '.has-error'):
